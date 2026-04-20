@@ -111,10 +111,11 @@ footer{background:var(--green-dark);border-top:1px solid rgba(255,255,255,0.08);
       <div class="ph-tag">Get in touch</div>
       <h1>Let's get your<br>brand on a <em>cup.</em></h1>
       <p>Fill in the form and we'll get back to you with a full quote within 24 hours. No commitment required.</p>
+    <a href="privacy.html" style="font-size:12px;color:rgba(255,255,255,0.22);text-decoration:none;">Privacy Policy</a>
     </div>
     <div class="ph-right">
       <div class="ph-stat"><div class="ph-stat-num">24h</div><div class="ph-stat-lbl">Quote turnaround</div></div>
-      <div class="ph-stat"><div class="ph-stat-num"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="721a171e1e1d321000170511001314065c0719">[email&#160;protected]</a></div><div class="ph-stat-lbl">Or email us directly</div></div>
+      <div class="ph-stat"><div class="ph-stat-num"><a href="mailto:hello@brewcraft.uk">hello@brewcraft.uk</a></div><div class="ph-stat-lbl">Or email us directly</div></div>
     </div>
   </div>
 </div>
@@ -154,21 +155,23 @@ footer{background:var(--green-dark);border-top:1px solid rgba(255,255,255,0.08);
         <div class="next-step"><div class="ns-num">4</div><div class="ns-text"><h4>Proof & approval</h4><p>We create a proof of your cup design for you to review and sign off before production begins.</p></div></div>
       </div>
     </div>
-    <div class="contact-form">
+    <form class="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
       <div class="form-row">
-        <div class="form-group"><label>First name</label><input type="text" placeholder="Jane"></div>
-        <div class="form-group"><label>Last name</label><input type="text" placeholder="Smith"></div>
+        <div class="form-group"><label>First name</label><input type="text" name="first_name" placeholder="Jane" required></div>
+        <div class="form-group"><label>Last name</label><input type="text" name="last_name" placeholder="Smith" required></div>
       </div>
-      <div class="form-group"><label>Café name</label><input type="text" placeholder="The Morning Cup"></div>
-      <div class="form-group"><label>Email address</label><input type="email" placeholder="jane@themorningcup.co.uk"></div>
+      <div class="form-group"><label>Café name</label><input type="text" name="cafe_name" placeholder="The Morning Cup" required></div>
+      <div class="form-group"><label>Email address</label><input type="email" name="email" placeholder="jane@themorningcup.co.uk" required></div>
       <div class="form-row">
-        <div class="form-group"><label>Cup size</label><select><option value="">Select size</option><option>8oz</option><option>12oz</option><option>Both</option></select></div>
-        <div class="form-group"><label>Quantity</label><select><option value="">Select quantity</option><option>1,000</option><option>2,000</option><option>3,000–5,000</option><option>5,000+</option></select></div>
+        <div class="form-group"><label>Cup size</label><select name="cup_size"><option value="">Select size</option><option>8oz</option><option>12oz</option><option>Both</option></select></div>
+        <div class="form-group"><label>Quantity</label><select name="quantity"><option value="">Select quantity</option><option>1,000</option><option>2,000</option><option>3,000–5,000</option><option>5,000+</option></select></div>
       </div>
-      <div class="form-group"><label>Tell us about your café & brand</label><textarea placeholder="A bit about your café, your branding, what you're looking for..."></textarea></div>
+      <div class="form-group"><label>Tell us about your café & brand</label><textarea name="message" placeholder="A bit about your café, your branding, what you're looking for..."></textarea></div>
+      <input type="hidden" name="_next" value="https://brewcraft.uk/contact.html?sent=true">
+      <input type="hidden" name="_subject" value="New quote request — Brewcraft">
       <button type="submit" class="form-submit">Send enquiry →</button>
       <p class="form-note">We'll get back to you within 24 hours. No commitment required.</p>
-    </div>
+    </form>
   </div>
 </section>
 
@@ -186,5 +189,5 @@ footer{background:var(--green-dark);border-top:1px solid rgba(255,255,255,0.08);
       <p>Custom branded takeaway cups for independent cafés across the UK.</p>
     </div>
     <div class="fcol"><p class="fcol-title">Pages</p><ul class="flinks"><li><a href="why-us.html">Why Brewcraft</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
-    <div class="fcol"><p class="fcol-title">Contact</p><ul class="flinks"><li><a href="/cdn-cgi/l/email-protection#147c7178787b547666716377667572603a617f"><span class="__cf_email__" data-cfemail="e189848d8d8ea1839384968293808795cf948a">[email&#160;protected]</span></a></li><li><a href="contact.html">Get a quote</a></li><li><a href="#">Hertfordshire, UK</a></li></ul></div>
+    <div class="fcol"><p class="fcol-title">Contact</p><ul class="flinks"><li><a href="mailto:hello@brewcraft.uk">hello@brewcraft.uk</a></li><li><a href="contact.html">Get a quote</a></li><li><a href="#">Hertfordshire, UK</a></li></ul></div>
     <div class="fcol"><p class="fcol-title">Follow</p><a href="https://instagram.com/brewcraftuk" target="_blank" class="finsta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="curren
