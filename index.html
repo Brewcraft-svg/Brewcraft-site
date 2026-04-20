@@ -86,14 +86,14 @@ h1{font-family:'Fraunces',serif;font-size:clamp(50px,5.2vw,80px);font-weight:900
 .hstat-l{font-size:10px;color:rgba(255,255,255,0.4);letter-spacing:0.07em;text-transform:uppercase;}
 
 /* ── MARQUEE ─────────────────────── */
-.marquee-wrap{overflow:hidden;background:var(--green);padding:14px 0;}
+.marquee-wrap{overflow:hidden;background:var(--green);padding:14px 0;border-top:1px solid rgba(59,109,17,0.5);}
 .marquee-track{display:flex;white-space:nowrap;animation:marquee 22s linear infinite;}
 .mi{font-family:'Outfit',sans-serif;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.8);padding:0 32px;flex-shrink:0;display:flex;align-items:center;gap:14px;}
 .mi::after{content:'✦';font-size:8px;color:rgba(255,255,255,0.3);}
 @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
 /* ── VISUAL SECTION — 3 illustrated cards ── */
-.visual-section{padding:96px 48px;background:linear-gradient(to bottom,#FAF8F5,#FAF8F5);}
+.visual-section{padding:96px 48px;background:var(--off-white);}
 .vs-header{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:56px;}
 .vs-header h2{font-family:'Fraunces',serif;font-size:clamp(34px,3.8vw,54px);font-weight:900;line-height:1.0;letter-spacing:-0.025em;}
 .vs-header h2 em{font-style:italic;color:var(--salmon);}
@@ -146,7 +146,7 @@ h1{font-family:'Fraunces',serif;font-size:clamp(50px,5.2vw,80px);font-weight:900
 .wc-arrow{width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(26,23,6,0.14);display:flex;align-items:center;justify-content:center;font-size:16px;transition:all 0.2s;}
 
 /* ── INSTAGRAM PREVIEW ─────────────── */
-.insta-section{background:linear-gradient(to bottom,#FAF8F5 0%,var(--salmon-light) 30%,var(--salmon-light) 100%);padding:80px 48px;}
+.insta-section{background:var(--salmon-light);padding:80px 48px;border-top:var(--border);}
 .insta-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;}
 .insta-header h2{font-family:'Fraunces',serif;font-size:clamp(28px,3.2vw,44px);font-weight:900;line-height:1.0;letter-spacing:-0.025em;}
 .insta-header h2 em{font-style:italic;color:var(--salmon-dark);}
@@ -239,11 +239,19 @@ h1{animation:fadeUp 0.5s 0.07s ease both;}
 <section class="hero">
   <div class="hero-left">
     <div class="hero-tag">Branded cups · UK independent cafés</div>
-    <h1>Your cup is the first<br>thing a customer holds.<br>Make it <em>count.</em></h1>
+    <h1>
+      Your cup.<br>
+      <span class="h1-line2">Their first</span><br>
+      <span class="squiggle">impression.
+        <svg viewBox="0 0 200 12" fill="none" preserveAspectRatio="none">
+          <path d="M2 9 Q25 3 50 8 Q75 13 100 7 Q125 1 150 8 Q175 13 198 6" stroke="#F5957E" stroke-width="3" stroke-linecap="round" fill="none"/>
+        </svg>
+      </span>
+    </h1>
     <p class="hero-desc">Independent cafés deserve packaging that does more than hold a drink. Brewcraft puts your brand on every cup — with artwork, QR codes, and proper service from day one.</p>
     <div class="hero-actions">
       <a href="contact.html" class="btn btn-salmon btn-arrow">Get a free quote</a>
-      <a href="how-it-works.html" class="btn btn-ghost">See how it works</a>
+      <a href="why-us.html" class="btn btn-ghost">Why Brewcraft</a>
     </div>
   </div>
 
@@ -259,73 +267,70 @@ h1{animation:fadeUp 0.5s 0.07s ease both;}
       <!-- Large illustrated cup -->
       <svg width="280" height="380" viewBox="0 0 280 380" fill="none" xmlns="http://www.w3.org/2000/svg">
         <!-- Background glow circle -->
-        <ellipse cx="140" cy="330" rx="120" ry="22" fill="rgba(42,80,9,0.28)"/>
+        <circle cx="140" cy="200" r="130" fill="rgba(255,255,255,0.04)"/>
         <!-- Cup shadow -->
-        <ellipse cx="140" cy="358" rx="85" ry="12" fill="rgba(42,80,9,0.18)"/>
+        <ellipse cx="140" cy="330" rx="70" ry="16" fill="rgba(0,0,0,0.12)"/>
         <!-- Cup body -->
-        <path d="M52 100 L228 100 L200 345 L80 345 Z" fill="#FAF8F5"/>
+        <path d="M52 92 L228 92 L204 308 L76 308 Z" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.45)" stroke-width="2"/>
         <!-- Rim/lid -->
-        <rect x="34" y="82" width="212" height="26" rx="6" fill="#3B6D11"/>
+        <rect x="46" y="80" width="188" height="16" rx="4" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
         <!-- Lid top cap -->
-        <rect x="96" y="60" width="88" height="30" rx="15" fill="#2A5009"/>
-        <!-- Drink slit -->
-        <rect x="116" y="67" width="48" height="14" rx="7" fill="#3B6D11"/>
+        <rect x="58" y="70" width="164" height="12" rx="3" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
         <!-- Cup highlight stripe -->
-        <path d="M52 100 L228 100 L222 122 L58 122 Z" fill="#EAF3DE"/>
-        <!-- Branding area — green square with logo -->
-        <rect x="84" y="132" width="112" height="96" rx="14" fill="#3B6D11"/>
-        <!-- White cup icon inside logo -->
-        <path d="M104 168 L176 168 L168 206 L112 206 Z" fill="none" stroke="#FAF8F5" stroke-width="3" stroke-linejoin="round"/>
-        <line x1="101" y1="168" x2="179" y2="168" stroke="#FAF8F5" stroke-width="3" stroke-linecap="round"/>
-        <path d="M112 206 Q140 213 168 206" fill="none" stroke="#FAF8F5" stroke-width="2.5" stroke-linecap="round"/>
-        <!-- Steam wisps on logo -->
-        <path d="M116 162 Q111 152 116 144" fill="none" stroke="#FAF8F5" stroke-width="2.2" stroke-linecap="round"/>
-        <path d="M140 160 Q135 150 140 142" fill="none" stroke="#FAF8F5" stroke-width="2.2" stroke-linecap="round"/>
-        <path d="M164 162 Q159 152 164 144" fill="none" stroke="#FAF8F5" stroke-width="2.2" stroke-linecap="round"/>
-        <!-- BREW text -->
-        <text x="140" y="217" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="14" font-weight="900" fill="#FAF8F5" letter-spacing="2">BREW</text>
-        <text x="140" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="400" fill="rgba(250,248,245,0.8)" letter-spacing="3">CRAFT</text>
+        <path d="M70 92 L80 308" stroke="rgba(255,255,255,0.06)" stroke-width="8"/>
+        <!-- Branding area -->
+        <rect x="88" y="136" width="104" height="120" rx="6" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.18)" stroke-width="1"/>
+        <!-- Brand text on cup -->
+        <text x="140" y="186" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="18" font-weight="800" fill="rgba(255,255,255,0.65)" letter-spacing="1.5">BREW</text>
+        <text x="140" y="206" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="11" font-weight="400" fill="rgba(255,255,255,0.25)" letter-spacing="3">CRAFT</text>
         <!-- QR code hint -->
-        <rect x="91" y="248" width="40" height="40" rx="4" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-        <rect x="96" y="253" width="12" height="12" rx="1" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
-        <rect x="98" y="255" width="8" height="8" fill="rgba(255,255,255,0.5)"/>
-        <rect x="112" y="253" width="12" height="12" rx="1" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
-        <rect x="114" y="255" width="8" height="8" fill="rgba(255,255,255,0.5)"/>
-        <rect x="96" y="269" width="12" height="12" rx="1" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
-        <rect x="98" y="271" width="8" height="8" fill="rgba(255,255,255,0.5)"/>
-        <rect x="112" y="269" width="4" height="4" fill="rgba(255,255,255,0.5)"/>
-        <rect x="118" y="269" width="4" height="4" fill="rgba(255,255,255,0.5)"/>
-        <rect x="112" y="275" width="4" height="4" fill="rgba(255,255,255,0.5)"/>
-        <text x="111" y="293" text-anchor="middle" font-family="Arial" font-size="5.5" fill="rgba(255,255,255,0.45)" letter-spacing="0.5">SCAN ME</text>
+        <rect x="108" y="218" width="64" height="64" rx="3" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.14)" stroke-width="0.75"/>
+        <line x1="108" y1="228" x2="172" y2="228" stroke="rgba(255,255,255,0.18)" stroke-width="0.75"/>
+        <line x1="108" y1="238" x2="172" y2="238" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+        <line x1="108" y1="248" x2="172" y2="248" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+        <line x1="118" y1="218" x2="118" y2="282" stroke="rgba(255,255,255,0.18)" stroke-width="0.75"/>
+        <line x1="128" y1="218" x2="128" y2="282" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+        <line x1="138" y1="218" x2="138" y2="282" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+        <line x1="148" y1="218" x2="148" y2="282" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
+        <line x1="158" y1="218" x2="158" y2="282" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
         <!-- Curved bottom -->
-        <path d="M80 345 Q140 355 200 345 L200 348 Q140 360 80 348 Z" fill="#D8ECC0"/>
-        <ellipse cx="140" cy="348" rx="60" ry="8" fill="#2A5009"/>
-        <!-- Steam wisps -->
-        <path d="M100 58 Q92 38 100 20" fill="none" stroke="rgba(245,149,126,0.7)" stroke-width="4.5" stroke-linecap="round"/>
-        <path d="M140 52 Q130 28 140 8" fill="none" stroke="rgba(245,149,126,0.85)" stroke-width="5" stroke-linecap="round"/>
-        <path d="M180 58 Q172 38 180 20" fill="none" stroke="rgba(245,149,126,0.65)" stroke-width="4.5" stroke-linecap="round"/>
-        <!-- Decorative dots -->
-        <circle cx="30" cy="150" r="5" fill="rgba(255,255,255,0.18)"/>
-        <circle cx="250" cy="200" r="4" fill="rgba(255,255,255,0.14)"/>
-        <circle cx="22" cy="240" r="3" fill="rgba(255,255,255,0.1)"/>
-        <circle cx="258" cy="280" r="6" fill="rgba(255,255,255,0.1)"/>
+        <path d="M76 308 Q140 328 204 308" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+        <!-- Steam wisps — salmon coloured, wavy -->
+        <path d="M90 50 Q96 34 102 50 Q108 66 114 50" fill="none" stroke="rgba(245,149,126,0.8)" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M118 42 Q124 26 130 42 Q136 58 142 42" fill="none" stroke="rgba(245,149,126,1)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M150 50 Q156 34 162 50 Q168 66 174 50" fill="none" stroke="rgba(245,149,126,0.8)" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- Decorative dots around cup -->
+        <circle cx="36" cy="160" r="4" fill="rgba(255,255,255,0.15)"/>
+        <circle cx="244" cy="200" r="6" fill="rgba(255,255,255,0.1)"/>
+        <circle cx="48" cy="260" r="3" fill="rgba(245,149,126,0.4)"/>
+        <circle cx="238" cy="280" r="4" fill="rgba(245,149,126,0.3)"/>
+        <circle cx="220" cy="140" r="5" fill="rgba(255,255,255,0.08)"/>
+        <circle cx="60" cy="200" r="3" fill="rgba(255,255,255,0.12)"/>
+        <!-- Leaf decorative element -->
+        <path d="M230 120 Q245 105 240 95 Q235 105 220 112 Q235 108 230 120Z" fill="rgba(255,255,255,0.1)"/>
+        <path d="M50 310 Q38 295 44 285 Q46 297 58 302 Q45 295 50 310Z" fill="rgba(245,149,126,0.25)"/>
       </svg>
     </div>
-  </div>
-
-  <div class="hero-stat-strip">
-    <div class="hstat"><div class="hstat-n">8 & 12oz</div><div class="hstat-l">Cup sizes</div></div>
-    <div class="hstat"><div class="hstat-n">QR codes</div><div class="hstat-l">Integrated free</div></div>
-    <div class="hstat"><div class="hstat-n">UK delivery</div><div class="hstat-l">Direct to café</div></div>
-    <div class="hstat"><div class="hstat-n">1,000 min</div><div class="hstat-l">Minimum order</div></div>
+    <div class="hero-stat-strip">
+      <div class="hstat"><div class="hstat-n">8 & 12oz</div><div class="hstat-l">Cup sizes</div></div>
+      <div class="hstat"><div class="hstat-n">QR codes</div><div class="hstat-l">Integrated free</div></div>
+      <div class="hstat"><div class="hstat-n">UK delivery</div><div class="hstat-l">Direct to café</div></div>
+    </div>
   </div>
 </section>
 
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="mi">Custom Branded Cups</span><span class="mi">QR Code Integration</span><span class="mi">UK Independent Cafés</span><span class="mi">Artwork Handled</span><span class="mi">Personal Service</span><span class="mi">3–4 Week Lead Time</span><span class="mi">Direct Delivery</span><span class="mi">Custom Branded Cups</span><span class="mi">QR Code Integration</span><span class="mi">UK Independent Cafés</span><span class="mi">Artwork Handled</span><span class="mi">Personal Service</span><span class="mi">3–4 Week Lead Time</span><span class="mi">Direct Delivery</span>
+  </div>
+</div>
+
 <!-- VISUAL CARDS — 3 illustrated feature tiles -->
-<section class="visual-section">
+<div class="visual-section">
   <div class="vs-header">
-    <h2 class="section-title">Not just a cup.<br>A <em>branding tool.</em></h2>
-    <p class="vs-sub">Everything you need to put your brand on the street — without the hassle.</p>
+    <h2>Not just a cup.<br>A <em>branding tool.</em></h2>
+    <p>Most cafés don't think twice about what their takeaway cup looks like. The ones that do — they're the ones people remember.</p>
   </div>
   <div class="visual-grid">
 
@@ -339,8 +344,8 @@ h1{animation:fadeUp 0.5s 0.07s ease both;}
           <line x1="14" y1="40" x2="106" y2="40" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
           <path d="M30 130 Q60 140 90 130" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
           <rect x="36" y="56" width="48" height="52" rx="3" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-          <text x="60" y="80" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" font-weight="800" fill="rgba(255,255,255,0.7)" letter-spacing="1">YOUR</text>
-          <text x="60" y="93" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" font-weight="800" fill="rgba(255,255,255,0.7)" letter-spacing="1">LOGO</text>
+          <text x="60" y="80" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="9" font-weight="800" fill="rgba(255,255,255,0.7)" letter-spacing="1">YOUR</text>
+          <text x="60" y="93" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="9" font-weight="800" fill="rgba(255,255,255,0.7)" letter-spacing="1">LOGO</text>
           <path d="M34 18 Q37 11 40 18 Q43 25 46 18" fill="none" stroke="rgba(245,149,126,0.9)" stroke-width="1.8" stroke-linecap="round"/>
           <path d="M52 14 Q55 7 58 14 Q61 21 64 14" fill="none" stroke="rgba(245,149,126,1)" stroke-width="2" stroke-linecap="round"/>
           <path d="M70 18 Q73 11 76 18 Q79 25 82 18" fill="none" stroke="rgba(245,149,126,0.9)" stroke-width="1.8" stroke-linecap="round"/>
@@ -365,12 +370,16 @@ h1{animation:fadeUp 0.5s 0.07s ease both;}
           <polygon points="52,77 57,80 52,83" fill="rgba(255,255,255,0.6)"/>
           <!-- QR Code — proper finder squares -->
           <rect x="62" y="35" width="62" height="80" rx="4" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+          <!-- Top-left finder square -->
           <rect x="68" y="41" width="18" height="18" rx="1" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2"/>
           <rect x="72" y="45" width="10" height="10" rx="0.5" fill="rgba(255,255,255,0.85)"/>
+          <!-- Top-right finder square -->
           <rect x="100" y="41" width="18" height="18" rx="1" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2"/>
           <rect x="104" y="45" width="10" height="10" rx="0.5" fill="rgba(255,255,255,0.85)"/>
+          <!-- Bottom-left finder square -->
           <rect x="68" y="70" width="18" height="18" rx="1" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="2"/>
           <rect x="72" y="74" width="10" height="10" rx="0.5" fill="rgba(255,255,255,0.85)"/>
+          <!-- Data modules -->
           <rect x="100" y="70" width="4" height="4" fill="rgba(255,255,255,0.8)"/>
           <rect x="106" y="70" width="4" height="4" fill="rgba(255,255,255,0.8)"/>
           <rect x="112" y="70" width="4" height="4" fill="rgba(255,255,255,0.4)"/>
@@ -378,10 +387,12 @@ h1{animation:fadeUp 0.5s 0.07s ease both;}
           <rect x="106" y="76" width="4" height="4" fill="rgba(255,255,255,0.8)"/>
           <rect x="112" y="76" width="4" height="4" fill="rgba(255,255,255,0.8)"/>
           <rect x="100" y="82" width="4" height="4" fill="rgba(255,255,255,0.8)"/>
+          <rect x="106" y="82" width="4" height="4" fill="rgba(255,255,255,0.4)"/>
           <rect x="68" y="92" width="4" height="4" fill="rgba(255,255,255,0.8)"/>
           <rect x="74" y="92" width="4" height="4" fill="rgba(255,255,255,0.4)"/>
           <rect x="80" y="92" width="4" height="4" fill="rgba(255,255,255,0.8)"/>
-          <text x="93" y="108" text-anchor="middle" font-family="Outfit,sans-serif" font-size="7" font-weight="600" fill="rgba(255,255,255,0.6)" letter-spacing="1">SCAN ME</text>
+          <rect x="86" y="92" width="4" height="4" fill="rgba(255,255,255,0.8)"/>
+          <text x="93" y="108" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="7" font-weight="600" fill="rgba(255,255,255,0.6)" letter-spacing="1">SCAN ME</text>
         </svg>
       </div>
       <div class="vcard-body">
@@ -395,131 +406,145 @@ h1{animation:fadeUp 0.5s 0.07s ease both;}
     <div class="vcard vc-dark">
       <div class="vcard-visual" style="position:relative;">
         <svg width="160" height="150" viewBox="0 0 160 150" fill="none" style="position:relative;z-index:1;">
+          <!-- Timeline / steps -->
           <line x1="80" y1="20" x2="80" y2="130" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          <!-- Step circles + labels -->
           <circle cx="80" cy="30" r="10" fill="#3B6D11" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-          <text x="80" y="34" text-anchor="middle" font-size="9" font-weight="700" fill="white" font-family="Outfit,sans-serif">1</text>
-          <text x="98" y="34" font-size="10" fill="rgba(255,255,255,0.5)" font-family="DM Sans,sans-serif">Quote</text>
+          <text x="80" y="34" text-anchor="middle" font-size="9" font-weight="700" fill="white" font-family="'Outfit',sans-serif">1</text>
+          <text x="98" y="34" font-size="10" fill="rgba(255,255,255,0.5)" font-family="'DM Sans',sans-serif">Quote</text>
           <circle cx="80" cy="62" r="10" fill="#F5957E" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-          <text x="80" y="66" text-anchor="middle" font-size="9" font-weight="700" fill="white" font-family="Outfit,sans-serif">2</text>
-          <text x="98" y="66" font-size="10" fill="rgba(255,255,255,0.5)" font-family="DM Sans,sans-serif">Artwork</text>
+          <text x="80" y="66" text-anchor="middle" font-size="9" font-weight="700" fill="white" font-family="'Outfit',sans-serif">2</text>
+          <text x="98" y="66" font-size="10" fill="rgba(255,255,255,0.5)" font-family="'DM Sans',sans-serif">Artwork</text>
           <circle cx="80" cy="94" r="10" fill="#3B6D11" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-          <text x="80" y="98" text-anchor="middle" font-size="9" font-weight="700" fill="white" font-family="Outfit,sans-serif">3</text>
-          <text x="98" y="98" font-size="10" fill="rgba(255,255,255,0.5)" font-family="DM Sans,sans-serif">Production</text>
+          <text x="80" y="98" text-anchor="middle" font-size="9" font-weight="700" fill="white" font-family="'Outfit',sans-serif">3</text>
+          <text x="98" y="98" font-size="10" fill="rgba(255,255,255,0.5)" font-family="'DM Sans',sans-serif">Production</text>
           <circle cx="80" cy="126" r="10" fill="white" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-          <text x="80" y="130" text-anchor="middle" font-size="9" font-weight="700" fill="#1A1706" font-family="Outfit,sans-serif">✓</text>
-          <text x="98" y="130" font-size="10" fill="rgba(255,255,255,0.5)" font-family="DM Sans,sans-serif">Delivery</text>
+          <text x="80" y="130" text-anchor="middle" font-size="9" font-weight="700" fill="#1A1706" font-family="'Outfit',sans-serif">✓</text>
+          <text x="98" y="130" font-size="10" fill="rgba(255,255,255,0.5)" font-family="'DM Sans',sans-serif">Delivered</text>
         </svg>
       </div>
       <div class="vcard-body">
         <div class="vcard-num">03</div>
         <div class="vcard-title">Handled start to finish</div>
-        <div class="vcard-desc">Quote, artwork, production, delivery — we manage every step. You focus on your café.</div>
+        <div class="vcard-desc">Quote, artwork, production, delivery — we manage every step. You focus on your café. We focus on your cup.</div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- GREEN FEATURES STRIP — gradient blend top and bottom -->
-<div style="height:64px;background:linear-gradient(to bottom,#FAF8F5,var(--green));"></div>
+<!-- GREEN FEATURES STRIP -->
 <div class="green-strip">
-  <div>
-    <p class="gs-tag">Why Brewcraft</p>
-    <h2 style="font-family:'Fraunces',serif;font-size:clamp(28px,3.2vw,44px);font-weight:900;line-height:1.05;letter-spacing:-0.025em;color:var(--white);margin-bottom:20px;">Everything your café needs.<br><em style="font-style:italic;color:var(--salmon);">Nothing it doesn't.</em></h2>
-    <p style="font-size:15px;color:rgba(255,255,255,0.6);line-height:1.7;font-weight:300;max-width:400px;margin-bottom:36px;">No middlemen, no confusing options. Just custom cups, done properly, at a price that makes sense for independent cafés.</p>
-    <a href="why-us.html" class="btn btn-white">See why cafés choose us</a>
+  <div class="gs-left">
+    <h2>The packaging partner independent cafés <em>actually want.</em></h2>
+    <p>No corporate jargon. No third-party confusion. Just a straight-talking service that gets your cups made and delivered.</p>
   </div>
-  <div style="display:flex;flex-direction:column;gap:20px;">
-    <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px 28px;">
-      <div style="font-family:'Fraunces',serif;font-size:32px;font-weight:700;color:white;line-height:1;margin-bottom:4px;">£0</div>
-      <div style="font-size:13px;color:rgba(255,255,255,0.5);font-weight:300;">Artwork setup fee</div>
+  <div class="gs-right">
+    <div class="gs-item">
+      <div class="gs-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div><h4>Proof before production</h4><p>You see your cup design before anything is printed. No surprises on delivery day.</p></div>
     </div>
-    <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px 28px;">
-      <div style="font-family:'Fraunces',serif;font-size:32px;font-weight:700;color:white;line-height:1;margin-bottom:4px;">24h</div>
-      <div style="font-size:13px;color:rgba(255,255,255,0.5);font-weight:300;">Quote turnaround</div>
+    <div class="gs-item">
+      <div class="gs-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div><h4>Better rates on repeat orders</h4><p>From £175 per 1,000 on returning orders. Volume discounts from 2,000+.</p></div>
     </div>
-    <div style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:24px 28px;">
-      <div style="font-family:'Fraunces',serif;font-size:32px;font-weight:700;color:white;line-height:1;margin-bottom:4px;">1,000</div>
-      <div style="font-size:13px;color:rgba(255,255,255,0.5);font-weight:300;">Minimum order, 8 or 12oz</div>
+    <div class="gs-item">
+      <div class="gs-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div><h4>We track your reorders</h4><p>We reach out when you're running low so you never get caught short mid-week.</p></div>
+    </div>
+    <div class="gs-item">
+      <div class="gs-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div><h4>Real person, every time</h4><p>No tickets, no bots. A real person on every order, from first quote to final delivery.</p></div>
     </div>
   </div>
 </div>
-<div style="height:64px;background:linear-gradient(to bottom,var(--green),#FAF8F5);"></div>
 
 <!-- WHO IT'S FOR -->
-<section class="who">
-  <div style="text-align:center;margin-bottom:48px;">
-    <p style="font-family:Outfit,sans-serif;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--green);margin-bottom:12px;">Who it's for</p>
-    <h2 class="section-title">Built for <em>independent cafés</em></h2>
+<div class="who">
+  <div class="who-header">
+    <h2>Made for cafés that <em>give a damn</em> about their brand.</h2>
+    <p>We work exclusively with independent cafés and small chains. If you care about how your brand looks — this is for you.</p>
   </div>
   <div class="who-grid">
     <div class="who-card">
-      <div style="font-size:28px;margin-bottom:16px;">☕</div>
-      <h3>Specialty coffee shops</h3>
-      <p>You've invested in your equipment, your beans, your team. Your cup should match.</p>
-      <a href="contact.html" class="wc-arrow">→</a>
+      <div class="wc-tag">Perfect fit</div>
+      <h3>Independent cafés</h3>
+      <p>One location. Big identity. Branded cups help you punch above your weight and build a local following that comes back.</p>
+      <div class="wc-arrow">→</div>
     </div>
     <div class="who-card">
-      <div style="font-size:28px;margin-bottom:16px;">🥐</div>
-      <h3>Bakeries & brunch spots</h3>
-      <p>Every takeaway drink is a chance to put your brand in someone's hand — and on their Instagram.</p>
-      <a href="contact.html" class="wc-arrow">→</a>
+      <div class="wc-tag">Perfect fit</div>
+      <h3>Small chains (1–5 sites)</h3>
+      <p>Consistent branding across every site — with bulk pricing that makes sense as you grow.</p>
+      <div class="wc-arrow">→</div>
     </div>
     <div class="who-card">
-      <div style="font-size:28px;margin-bottom:16px;">🌿</div>
-      <h3>Conscious cafés</h3>
-      <p>Our cups are built to carry your values as well as your drinks. Sustainably sourced, professionally printed.</p>
-      <a href="contact.html" class="wc-arrow">→</a>
+      <div class="wc-tag">Perfect fit</div>
+      <h3>Boutique & lifestyle cafés</h3>
+      <p>If your café has a strong aesthetic and you want your packaging to match — we get it. The cup is part of the experience.</p>
+      <div class="wc-arrow">→</div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- INSTAGRAM PREVIEW -->
-<section class="insta-section">
+<div class="insta-section">
   <div class="insta-header">
-    <h2 style="font-family:'Fraunces',serif;font-size:clamp(28px,3.2vw,44px);font-weight:900;line-height:1.0;letter-spacing:-0.025em;">See it in the <em style="font-style:italic;color:var(--salmon-dark);">wild</em></h2>
+    <h2>Cups in the <em>wild.</em></h2>
     <a href="https://instagram.com/brewcraftuk" target="_blank" class="insta-link">@brewcraftuk →</a>
   </div>
   <div class="insta-grid">
     <div class="insta-tile">
       <div class="tile-bg" style="background:#C8D9B8;">
-        <svg width="80" height="110" viewBox="0 0 80 110" fill="none"><path d="M12 28 L68 28 L60 98 L20 98 Z" fill="rgba(59,109,17,0.25)" stroke="rgba(59,109,17,0.5)" stroke-width="1.5"/><line x1="8" y1="28" x2="72" y2="28" stroke="rgba(59,109,17,0.5)" stroke-width="1.5"/><rect x="26" y="42" width="28" height="28" rx="3" fill="rgba(59,109,17,0.2)"/><text x="40" y="58" text-anchor="middle" font-size="7" font-weight="700" fill="rgba(59,109,17,0.7)" font-family="Arial Black">BREW</text></svg>
+        <svg width="70" height="90" viewBox="0 0 70 90" fill="none">
+          <path d="M12 24 L58 24 L51 76 L19 76 Z" fill="rgba(59,109,17,0.2)" stroke="rgba(59,109,17,0.5)" stroke-width="1.5"/>
+          <line x1="9" y1="24" x2="61" y2="24" stroke="rgba(59,109,17,0.5)" stroke-width="1.5"/>
+          <path d="M19 76 Q35 82 51 76" fill="none" stroke="rgba(59,109,17,0.5)" stroke-width="1.5"/>
+        </svg>
       </div>
       <div class="tile-overlay"><span>Custom 8oz</span></div>
     </div>
     <div class="insta-tile">
       <div class="tile-bg" style="background:#F5D5CC;">
-        <svg width="80" height="110" viewBox="0 0 80 110" fill="none"><path d="M14 30 L66 30 L58 96 L22 96 Z" fill="rgba(224,116,96,0.2)" stroke="rgba(224,116,96,0.5)" stroke-width="1.5"/><line x1="10" y1="30" x2="70" y2="30" stroke="rgba(224,116,96,0.5)" stroke-width="1.5"/><rect x="28" y="46" width="10" height="10" rx="1" fill="none" stroke="rgba(224,116,96,0.6)" stroke-width="1.2"/><rect x="30" y="48" width="6" height="6" fill="rgba(224,116,96,0.6)"/><rect x="42" y="46" width="10" height="10" rx="1" fill="none" stroke="rgba(224,116,96,0.6)" stroke-width="1.2"/><rect x="44" y="48" width="6" height="6" fill="rgba(224,116,96,0.6)"/></svg>
+        <svg width="70" height="90" viewBox="0 0 70 90" fill="none">
+          <path d="M12 24 L58 24 L51 76 L19 76 Z" fill="rgba(224,116,96,0.2)" stroke="rgba(224,116,96,0.5)" stroke-width="1.5"/>
+          <line x1="9" y1="24" x2="61" y2="24" stroke="rgba(224,116,96,0.5)" stroke-width="1.5"/>
+          <path d="M19 76 Q35 82 51 76" fill="none" stroke="rgba(224,116,96,0.5)" stroke-width="1.5"/>
+          <rect x="22" y="34" width="26" height="26" rx="2" fill="rgba(224,116,96,0.15)" stroke="rgba(224,116,96,0.3)" stroke-width="0.75"/>
+        </svg>
       </div>
       <div class="tile-overlay"><span>QR integration</span></div>
     </div>
     <div class="insta-tile">
       <div class="tile-bg" style="background:#D0E8D0;">
-        <svg width="80" height="110" viewBox="0 0 80 110" fill="none"><path d="M10 26 L70 26 L62 98 L18 98 Z" fill="rgba(59,109,17,0.2)" stroke="rgba(59,109,17,0.4)" stroke-width="1.5"/><line x1="6" y1="26" x2="74" y2="26" stroke="rgba(59,109,17,0.4)" stroke-width="1.5"/><text x="40" y="62" text-anchor="middle" font-size="8" fill="rgba(59,109,17,0.6)" font-family="DM Sans">12oz</text></svg>
+        <svg width="80" height="90" viewBox="0 0 80 90" fill="none">
+          <path d="M8 24 L40 24 L36 76 L12 76 Z" fill="rgba(59,109,17,0.15)" stroke="rgba(59,109,17,0.4)" stroke-width="1.5"/>
+          <line x1="6" y1="24" x2="42" y2="24" stroke="rgba(59,109,17,0.4)" stroke-width="1.5"/>
+          <path d="M44 24 L72 24 L68 76 L48 76 Z" fill="rgba(59,109,17,0.1)" stroke="rgba(59,109,17,0.3)" stroke-width="1.5"/>
+          <line x1="42" y1="24" x2="74" y2="24" stroke="rgba(59,109,17,0.3)" stroke-width="1.5"/>
+        </svg>
       </div>
       <div class="tile-overlay"><span>8oz & 12oz</span></div>
     </div>
     <div class="insta-tile">
       <div class="tile-bg" style="background:#E8D5F5;">
-        <svg width="80" height="110" viewBox="0 0 80 110" fill="none"><path d="M12 28 L68 28 L60 98 L20 98 Z" fill="rgba(138,79,191,0.15)" stroke="rgba(138,79,191,0.4)" stroke-width="1.5"/><line x1="8" y1="28" x2="72" y2="28" stroke="rgba(138,79,191,0.4)" stroke-width="1.5"/><rect x="24" y="42" width="32" height="32" rx="3" fill="rgba(138,79,191,0.15)"/><text x="40" y="60" text-anchor="middle" font-size="7" fill="rgba(138,79,191,0.7)" font-family="Arial Black" font-weight="700">YOUR</text><text x="40" y="71" text-anchor="middle" font-size="7" fill="rgba(138,79,191,0.7)" font-family="Arial Black" font-weight="700">BRAND</text></svg>
+        <svg width="70" height="90" viewBox="0 0 70 90" fill="none">
+          <path d="M12 24 L58 24 L51 76 L19 76 Z" fill="rgba(120,80,160,0.1)" stroke="rgba(120,80,160,0.4)" stroke-width="1.5"/>
+          <line x1="9" y1="24" x2="61" y2="24" stroke="rgba(120,80,160,0.4)" stroke-width="1.5"/>
+          <path d="M19 76 Q35 82 51 76" fill="none" stroke="rgba(120,80,160,0.4)" stroke-width="1.5"/>
+          <text x="35" y="55" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="8" font-weight="700" fill="rgba(120,80,160,0.5)" letter-spacing="0.5">YOUR BRAND</text>
+        </svg>
       </div>
       <div class="tile-overlay"><span>Your design</span></div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- CTA BAND -->
 <div class="cta-band">
-  <h2>Ready to get your brand<br>on every cup? <em>Let's go.</em></h2>
+  <h2>Ready to make every cup <em>work harder?</em></h2>
   <div class="cta-right">
     <a href="contact.html" class="btn btn-white btn-arrow">Get a free quote</a>
     <span class="cta-note">No commitment. Quote back within 24 hours.</span>
-  </div>
-</div>
-
-<!-- MARQUEE — at the bottom, before footer -->
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span class="mi">Custom Branded Cups</span><span class="mi">QR Code Integration</span><span class="mi">UK Independent Cafés</span><span class="mi">Artwork Handled</span><span class="mi">Personal Service</span><span class="mi">3–4 Week Lead Time</span><span class="mi">Direct Delivery</span><span class="mi">Custom Branded Cups</span><span class="mi">QR Code Integration</span><span class="mi">UK Independent Cafés</span><span class="mi">Artwork Handled</span><span class="mi">Personal Service</span><span class="mi">3–4 Week Lead Time</span><span class="mi">Direct Delivery</span>
   </div>
 </div>
 
