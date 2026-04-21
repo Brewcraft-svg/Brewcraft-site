@@ -19,18 +19,18 @@ body{background:var(--white);color:var(--black);font-family:"DM Sans",sans-serif
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:100px;background:var(--green);border-bottom:1px solid rgba(255,255,255,0.1);}
 .nav-logo{display:flex;align-items:center;gap:0;text-decoration:none;}
 .nav-links{display:flex;align-items:center;gap:2px;list-style:none;}
-.nav-links a{font-family:"Outfit",sans-serif;font-size:12px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:rgba(255,255,255,0.65);text-decoration:none;padding:8px 16px;border-radius:6px;transition:all 0.2s;}
+.nav-links a{font-family:"Outfit",sans-serif;font-size:12px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--white);text-decoration:none;padding:8px 16px;border-radius:6px;transition:all 0.2s;}
 .nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,0.12);}
 .nav-cta{background:var(--salmon)!important;color:var(--white)!important;border-radius:100px!important;}
 .nav-cta:hover{background:var(--salmon-dark)!important;}
 .page-hero{padding:100px 0 0;}
-.page-hero-inner{background:var(--green);padding:80px 48px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.page-hero-inner{background:var(--green);padding:80px 48px;display:flex;flex-direction:column;align-items:center;text-align:center;}
 .page-hero-inner.full{grid-template-columns:1fr;}
 .ph-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);border-radius:100px;padding:6px 16px;font-family:"Outfit",sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.85);margin-bottom:24px;width:fit-content;}
 .ph-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--salmon);}
 .page-hero-inner h1{font-family:"Fraunces",serif;font-size:clamp(42px,5vw,72px);font-weight:900;line-height:0.97;letter-spacing:-0.03em;color:var(--white);margin-bottom:20px;}
 .page-hero-inner h1 em{font-style:italic;color:var(--salmon);}
-.page-hero-inner p{font-size:17px;color:rgba(255,255,255,0.55);line-height:1.8;font-weight:300;max-width:480px;}
+.page-hero-inner p{font-size:17px;color:rgba(255,255,255,0.65);line-height:1.8;font-weight:300;max-width:560px;}
 .ph-right{display:flex;flex-direction:column;gap:16px;}
 .ph-stat{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:24px 28px;}
 .ph-stat-num{font-family:"Fraunces",serif;font-size:36px;font-weight:700;color:var(--white);line-height:1;margin-bottom:4px;}
@@ -111,7 +111,7 @@ footer{background:var(--green-dark);border-top:1px solid rgba(255,255,255,0.08);
       <div class="ph-tag">Get in touch</div>
       <h1>Let's get your<br>brand on a <em>cup.</em></h1>
       <p>Fill in the form and we'll get back to you with a full quote within 24 hours. No commitment required.</p>
-    <a href="privacy.html" style="font-size:12px;color:rgba(255,255,255,0.22);text-decoration:none;">Privacy Policy</a>
+    <a href="privacy.html" style="font-size:12px;color:rgba(255,255,255,0.35);text-decoration:none;">Privacy Policy</a>
     </div>
     <div class="ph-right">
       <div class="ph-stat"><div class="ph-stat-num">24h</div><div class="ph-stat-lbl">Quote turnaround</div></div>
@@ -194,7 +194,7 @@ footer{background:var(--green-dark);border-top:1px solid rgba(255,255,255,0.08);
   </div>
   <div class="footer-bottom" style="display:flex;align-items:center;justify-content:space-between;padding:20px 40px;">
     <p class="footer-copy">&copy; 2026 Brewcraft. All rights reserved.</p>
-    <a href="privacy.html" style="font-size:12px;color:rgba(255,255,255,0.22);text-decoration:none;">Privacy Policy</a>
+    <a href="privacy.html" style="font-size:12px;color:rgba(255,255,255,0.35);text-decoration:none;">Privacy Policy</a>
   </div>
 </footer>
 </body>
