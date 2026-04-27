@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FAQ — Brewcraft</title>
+<title>Privacy Policy — Brewcraft</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,700&family=Outfit:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&display=swap" rel="stylesheet">
 <style>
@@ -19,18 +19,18 @@ body{background:var(--white);color:var(--black);font-family:"DM Sans",sans-serif
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:100px;background:var(--green);border-bottom:1px solid rgba(255,255,255,0.1);}
 .nav-logo{display:flex;align-items:center;gap:0;text-decoration:none;}
 .nav-links{display:flex;align-items:center;gap:2px;list-style:none;}
-.nav-links a{font-family:"Outfit",sans-serif;font-size:12px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:rgba(255,255,255,0.65);text-decoration:none;padding:8px 16px;border-radius:6px;transition:all 0.2s;}
+.nav-links a{font-family:"Outfit",sans-serif;font-size:12px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--white);text-decoration:none;padding:8px 16px;border-radius:6px;transition:all 0.2s;}
 .nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,0.12);}
 .nav-cta{background:var(--salmon)!important;color:var(--white)!important;border-radius:100px!important;}
 .nav-cta:hover{background:var(--salmon-dark)!important;}
-.page-hero{padding:100px 0 0;}
-.page-hero-inner{background:var(--green);padding:80px 48px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.page-hero{padding:100px 0 0;background:var(--green);}
+.page-hero-inner{background:var(--green);padding:80px 48px;display:flex;flex-direction:column;align-items:center;text-align:center;}
 .page-hero-inner.full{grid-template-columns:1fr;}
 .ph-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.15);border-radius:100px;padding:6px 16px;font-family:"Outfit",sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,0.85);margin-bottom:24px;width:fit-content;}
 .ph-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--salmon);}
 .page-hero-inner h1{font-family:"Fraunces",serif;font-size:clamp(42px,5vw,72px);font-weight:900;line-height:0.97;letter-spacing:-0.03em;color:var(--white);margin-bottom:20px;}
 .page-hero-inner h1 em{font-style:italic;color:var(--salmon);}
-.page-hero-inner p{font-size:17px;color:rgba(255,255,255,0.55);line-height:1.8;font-weight:300;max-width:480px;}
+.page-hero-inner p{font-size:17px;color:rgba(255,255,255,0.65);line-height:1.8;font-weight:300;max-width:560px;}
 .ph-right{display:flex;flex-direction:column;gap:16px;}
 .ph-stat{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:16px;padding:24px 28px;}
 .ph-stat-num{font-family:"Fraunces",serif;font-size:36px;font-weight:700;color:var(--white);line-height:1;margin-bottom:4px;}
@@ -105,100 +105,85 @@ footer{background:var(--green-dark);border-top:1px solid rgba(255,255,255,0.08);
   </ul>
 </nav>
 
-<style>
-.privacy-wrap{max-width:760px;margin:0 auto;padding:120px 48px 80px;}
-.privacy-wrap h1{font-family:"Fraunces",serif;font-size:clamp(36px,5vw,56px);font-weight:900;line-height:1.05;color:var(--black);letter-spacing:-0.02em;margin-bottom:12px;}
-.privacy-wrap h1 em{font-style:italic;color:var(--green);}
-.privacy-wrap .last-updated{font-size:13px;color:var(--muted);margin-bottom:48px;}
-.privacy-wrap h2{font-family:"Outfit",sans-serif;font-size:18px;font-weight:700;color:var(--black);margin:40px 0 12px;}
-.privacy-wrap p,.privacy-wrap li{font-size:15px;color:#444;line-height:1.8;margin-bottom:12px;}
-.privacy-wrap ul{padding-left:20px;margin-bottom:16px;}
-.privacy-wrap a{color:var(--green);}
-@media(max-width:768px){.privacy-wrap{padding:100px 24px 60px;}}
-</style>
-
-<div class="privacy-wrap">
-  <h1>Privacy <em>Policy</em></h1>
-  <p class="last-updated">Last updated: April 2026</p>
-
-  <p>This Privacy Policy explains how Brewcraft (trading name of Hertfordshire Trade Supplies) collects, uses, and protects your personal data when you use our website or contact us about our services. We are committed to handling your data responsibly and in line with the UK General Data Protection Regulation (UK GDPR).</p>
-
-  <h2>1. Who we are</h2>
-  <p>Brewcraft is a trading name of Hertfordshire Trade Supplies, based in Hertfordshire, UK. We supply custom branded takeaway cups to independent cafés across the UK. For data protection purposes, we are the data controller.</p>
-  <p>You can contact us at: <a href="mailto:hello@brewcraft.uk">hello@brewcraft.uk</a></p>
-
-  <h2>2. What data we collect</h2>
-  <p>We collect the following personal data when you submit an enquiry through our contact form:</p>
-  <ul>
-    <li>First and last name</li>
-    <li>Email address</li>
-    <li>Café name</li>
-    <li>Details about your enquiry (cup size, quantity, brand information)</li>
-  </ul>
-  <p>We do not collect payment information directly on this website. Payments are processed securely through Stripe. Please refer to <a href="https://stripe.com/gb/privacy" target="_blank">Stripe's Privacy Policy</a> for information on how they handle your payment data.</p>
-
-  <h2>3. How we use your data</h2>
-  <p>We use the information you provide to:</p>
-  <ul>
-    <li>Respond to your enquiry and provide a quote</li>
-    <li>Process and manage your order</li>
-    <li>Send order updates and delivery information</li>
-    <li>Contact you about reorders when relevant</li>
-  </ul>
-  <p>We will not use your data for marketing purposes without your explicit consent, and we will never sell your data to third parties.</p>
-
-  <h2>4. Legal basis for processing</h2>
-  <p>We process your personal data on the basis of:</p>
-  <ul>
-    <li><strong>Legitimate interests</strong> — responding to your enquiry and managing our business relationship with you</li>
-    <li><strong>Contract</strong> — processing your order and fulfilling our obligations to you</li>
-    <li><strong>Legal obligation</strong> — where required by law</li>
-  </ul>
-
-  <h2>5. How long we keep your data</h2>
-  <p>We retain customer records for up to 7 years in line with UK tax and accounting requirements. Enquiries that do not result in an order are deleted after 12 months.</p>
-
-  <h2>6. Who we share your data with</h2>
-  <p>We may share your data with the following third parties where necessary to fulfil your order:</p>
-  <ul>
-    <li><strong>Formspree</strong> — processes contact form submissions on our behalf</li>
-    <li><strong>Stripe</strong> — processes payments securely</li>
-    <li><strong>Our cup supplier</strong> — receives artwork and delivery details to fulfil your order</li>
-  </ul>
-  <p>All third parties we work with are required to handle your data securely and in accordance with applicable data protection law.</p>
-
-  <h2>7. Your rights</h2>
-  <p>Under UK GDPR, you have the right to:</p>
-  <ul>
-    <li>Access the personal data we hold about you</li>
-    <li>Request correction of inaccurate data</li>
-    <li>Request deletion of your data (subject to legal retention obligations)</li>
-    <li>Object to or restrict processing of your data</li>
-    <li>Data portability</li>
-    <li>Withdraw consent at any time (where processing is based on consent)</li>
-  </ul>
-  <p>To exercise any of these rights, please contact us at <a href="mailto:hello@brewcraft.uk">hello@brewcraft.uk</a>. We will respond within 30 days.</p>
-
-  <h2>8. Cookies</h2>
-  <p>Our website does not currently use tracking or analytics cookies. If this changes, we will update this policy and obtain your consent where required.</p>
-
-  <h2>9. Data security</h2>
-  <p>We take reasonable technical and organisational measures to protect your personal data. Our website is served over HTTPS and form submissions are handled by reputable third-party processors.</p>
-
-  <h2>10. Changes to this policy</h2>
-  <p>We may update this Privacy Policy from time to time. Any changes will be published on this page with an updated date. We encourage you to review this page periodically.</p>
-
-  <h2>11. Complaints</h2>
-  <p>If you have concerns about how we handle your data, you have the right to lodge a complaint with the UK's data protection authority, the Information Commissioner's Office (ICO): <a href="https://ico.org.uk" target="_blank">ico.org.uk</a></p>
-</div>
-
-<div class="cta-band">
-  <h2>Ready to get your brand<br>on every cup? <em>Let's go.</em></h2>
-  <div class="cta-right">
-    <a href="contact.html" class="btn btn-white btn-arrow">Get a free quote</a>
-    <span class="cta-note">No commitment. Quote back within 24 hours.</span>
+<div class="page-hero" style="background:var(--green);">
+  <div class="page-hero-inner" style="background:var(--green);padding:80px 48px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+    <div>
+      <div class="ph-tag">Legal</div>
+      <h1>Privacy <em>Policy.</em></h1>
+      <p>How Brewcraft collects, uses, and protects your personal data.</p>
+    </div>
   </div>
 </div>
+
+<section style="max-width:760px;margin:0 auto;padding:72px 48px;">
+
+  <p style="font-size:13px;color:var(--muted);margin-bottom:48px;">Last updated: April 2026. Brewcraft is a trading name of Hertfordshire Trade Supplies.</p>
+
+  <h2 style="font-family:'Fraunces',serif;font-size:28px;font-weight:700;margin-bottom:12px;color:var(--black);">1. Who we are</h2>
+  <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:36px;">Brewcraft is operated by Hertfordshire Trade Supplies, based in Hertfordshire, UK. We supply custom branded takeaway cups to independent cafés across the UK. You can contact us at <a href="mailto:hello@brewcraft.uk" style="color:var(--green);">hello@brewcraft.uk</a>.</p>
+
+  <h2 style="font-family:'Fraunces',serif;font-size:28px;font-weight:700;margin-bottom:12px;color:var(--black);">2. What data we collect</h2>
+  <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px;">We may collect the following personal data when you contact us or place an order:</p>
+  <ul style="font-size:15px;color:var(--muted);line-height:1.9;padding-left:24px;margin-bottom:36px;">
+    <li>Your name and business name</li>
+    <li>Email address and phone number</li>
+    <li>Delivery address</li>
+    <li>Order details and payment information (processed securely via Stripe)</li>
+    <li>Any brand assets or artwork you share with us</li>
+  </ul>
+
+  <h2 style="font-family:'Fraunces',serif;font-size:28px;font-weight:700;margin-bottom:12px;color:var(--black);">3. How we use your data</h2>
+  <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px;">We use your personal data only to:</p>
+  <ul style="font-size:15px;color:var(--muted);line-height:1.9;padding-left:24px;margin-bottom:36px;">
+    <li>Respond to your enquiries and provide quotes</li>
+    <li>Process and fulfil your orders</li>
+    <li>Send order updates and delivery notifications</li>
+    <li>Remind you when stock may be running low (reorder reminders)</li>
+    <li>Comply with our legal and financial obligations</li>
+  </ul>
+
+  <h2 style="font-family:'Fraunces',serif;font-size:28px;font-weight:700;margin-bottom:12px;color:var(--black);">4. Legal basis for processing</h2>
+  <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:36px;">Under UK GDPR, we process your data on the basis of <strong>contract</strong> (to fulfil your order), <strong>legitimate interests</strong> (to manage our business relationship with you), and <strong>legal obligation</strong> (to meet our statutory duties).</p>
+
+  <h2 style="font-family:'Fraunces',serif;font-size:28px;font-weight:700;margin-bottom:12px;color:var(--black);">5. Who we share your data with</h2>
+  <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px;">We do not sell your data. We share it only where necessary with:</p>
+  <ul style="font-size:15px;color:var(--muted);line-height:1.9;padding-left:24px;margin-bottom:36px;">
+    <li><strong>Elpack Packaging</strong> — our cup supplier, who receives your order specification and delivery address</li>
+    <li><strong>Stripe</strong> — our payment processor, who handles card transactions securely</li>
+    <li><strong>Formspree</strong> — who processes contact form submissions on our behalf</li>
+  </ul>
+
+  <h2 style="font-family:'Fraunces',serif;font-size:28px;font-weight:700;margin-bottom:12px;color:var(--black);">6. How long we keep your data</h2>
+  <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:36px;">We retain order records for 7 years to comply with HMRC requirements. Contact enquiries that do not result in an order are deleted after 12 months. Artwork files are kept on file to speed up reorders and deleted upon request.</p>
+
+  <h2 style="font-family:'Fraunces',serif;font-size:28px;font-weight:700;margin-bottom:12px;color:var(--black);">7. Your rights</h2>
+  <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:16px;">Under UK GDPR you have the right to:</p>
+  <ul style="font-size:15px;color:var(--muted);line-height:1.9;padding-left:24px;margin-bottom:36px;">
+    <li>Access the personal data we hold about you</li>
+    <li>Request correction of inaccurate data</li>
+    <li>Request deletion of your data (where no legal obligation requires us to retain it)</li>
+    <li>Object to or restrict our processing of your data</li>
+    <li>Withdraw consent at any time (where consent is the basis for processing)</li>
+  </ul>
+  <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:36px;">To exercise any of these rights, email us at <a href="mailto:hello@brewcraft.uk" style="color:var(--green);">hello@brewcraft.uk</a>. We will respond within 30 days.</p>
+
+  <h2 style="font-family:'Fraunces',serif;font-size:28px;font-weight:700;margin-bottom:12px;color:var(--black);">8. Cookies</h2>
+  <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:36px;">Our website does not use tracking or advertising cookies. We may use essential session cookies to ensure the contact form works correctly.</p>
+
+  <h2 style="font-family:'Fraunces',serif;font-size:28px;font-weight:700;margin-bottom:12px;color:var(--black);">9. Complaints</h2>
+  <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:36px;">If you are unhappy with how we handle your data, you have the right to lodge a complaint with the <strong>Information Commissioner's Office (ICO)</strong> at <a href="https://ico.org.uk" target="_blank" style="color:var(--green);">ico.org.uk</a>.</p>
+
+  <h2 style="font-family:'Fraunces',serif;font-size:28px;font-weight:700;margin-bottom:12px;color:var(--black);">10. Changes to this policy</h2>
+  <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:36px;">We may update this policy from time to time. The latest version will always be available at this page. We will notify active customers of any significant changes by email.</p>
+
+  <div style="background:var(--green-pale);border:1px solid var(--green-light);border-radius:16px;padding:28px 32px;margin-top:48px;">
+    <p style="font-size:15px;color:var(--black);font-weight:600;margin-bottom:6px;">Questions about your data?</p>
+    <p style="font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:16px;">Get in touch and we'll be happy to help.</p>
+    <a href="mailto:hello@brewcraft.uk" style="display:inline-flex;align-items:center;gap:8px;background:var(--green);color:var(--white);font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;border-radius:100px;padding:12px 24px;text-decoration:none;">hello@brewcraft.uk</a>
+  </div>
+
+</section>
+
 <footer>
   <div class="footer-main">
     <div class="fcol fcol-brand">
@@ -207,6 +192,12 @@ footer{background:var(--green-dark);border-top:1px solid rgba(255,255,255,0.08);
     </div>
     <div class="fcol"><p class="fcol-title">Pages</p><ul class="flinks"><li><a href="why-us.html">Why Brewcraft</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="faq.html">FAQ</a></li></ul></div>
     <div class="fcol"><p class="fcol-title">Contact</p><ul class="flinks"><li><a href="mailto:hello@brewcraft.uk">hello@brewcraft.uk</a></li><li><a href="contact.html">Get a quote</a></li><li><a href="#">Hertfordshire, UK</a></li></ul></div>
-    <div class="fcol"><p class="fcol-title">Follow</p><a href="https://instagram.com/brewcraftuk" target="_blank" class="finsta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="2" w
+    <div class="fcol"><p class="fcol-title">Follow</p><a href="https://instagram.com/brewcraftuk" target="_blank" class="finsta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>@brewcraftuk</a></div>
+  </div>
+  <div class="footer-bottom" style="display:flex;align-items:center;justify-content:space-between;padding:20px 40px;">
+    <p class="footer-copy">&copy; 2026 Brewcraft. All rights reserved.</p>
+    <a href="privacy.html" style="font-size:12px;color:rgba(255,255,255,0.35);text-decoration:none;">Privacy Policy</a>
+  </div>
+</footer>
 </body>
 </html>
