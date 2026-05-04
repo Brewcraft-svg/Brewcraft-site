@@ -181,6 +181,8 @@ footer{background:var(--green-dark);border-top:1px solid rgba(255,255,255,0.08);
 
 @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 </style>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>emailjs.init("IT9NqlzWwBiyhCFL7");</script>
 </head>
 <body>
 <nav>
@@ -468,16 +470,17 @@ footer{background:var(--green-dark);border-top:1px solid rgba(255,255,255,0.08);
           <div class="branding-field">
             <label>Upload your logo <span>*</span></label>
             <div class="branding-upload" id="logo-upload-area">
-              <input type="file" id="logo-file" accept=".png,.jpg,.jpeg,.svg,.pdf,.ai,.eps" onchange="handleFileSelect(this)">
-              <div class="branding-upload-box">
+              <input type="file" id="logo-file" accept=".png,.jpg,.jpeg,.svg,.gif,.webp" onchange="handleFileSelect(this)">
+              <div class="branding-upload-box" id="upload-box">
                 <div class="branding-upload-icon">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3B6D11" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
                 </div>
                 <div class="branding-upload-text" id="upload-text">Click to upload your logo</div>
-                <div class="branding-upload-sub">PNG, JPG, SVG, PDF, AI or EPS · Max 10MB</div>
+                <div class="branding-upload-sub">PNG, JPG, SVG or GIF · Max 5MB</div>
                 <div class="branding-upload-name" id="upload-filename"></div>
               </div>
             </div>
+            <p style="font-size:12px;color:var(--muted);margin-top:8px;">Your logo is sent automatically when you click Pay — no extra steps needed.</p>
           </div>
 
           <div class="branding-field">
@@ -759,97 +762,127 @@ function updateTotal() {
 // Initialise on load
 document.addEventListener('DOMContentLoaded', updateTotal);
 
+function generateCode() {
+  var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  var code = 'BC-';
+  for (var i = 0; i < 6; i++) code += chars[Math.floor(Math.random() * chars.length)];
+  return code;
+}
+
 function handleFileSelect(input) {
-  var filename = document.getElementById('upload-filename');
-  var uploadText = document.getElementById('upload-text');
   if (input.files && input.files[0]) {
-    filename.textContent = '✓ ' + input.files[0].name;
-    filename.style.display = 'block';
-    uploadText.textContent = 'Change file';
+    document.getElementById('upload-filename').textContent = '✓ ' + input.files[0].name;
+    document.getElementById('upload-filename').style.display = 'block';
+    document.getElementById('upload-text').textContent = 'Change file';
+    document.getElementById('upload-box').style.borderColor = 'var(--green)';
   }
 }
 
+function toBase64(file) {
+  return new Promise(function(resolve, reject) {
+    var reader = new FileReader();
+    reader.onload  = function() { resolve(reader.result); };
+    reader.onerror = function() { reject(new Error('read fail')); };
+    reader.readAsDataURL(file);
+  });
+}
+
 function handleCheckout() {
-  var sizeEl  = document.getElementById('cup-size');
-  var typeEl  = document.getElementById('order-type');
-  var lidsEl  = document.getElementById('lids-addon');
-  var key     = sizeEl.value + '-' + typeEl.value + (lidsEl.checked ? '-lids' : '');
-  var link    = STRIPE_LINKS[key];
+  var sizeEl = document.getElementById('cup-size');
+  var typeEl = document.getElementById('order-type');
+  var lidsEl = document.getElementById('lids-addon');
+  var key    = sizeEl.value + '-' + typeEl.value + (lidsEl.checked ? '-lids' : '');
+  var link   = STRIPE_LINKS[key];
 
   if (!link || link.indexOf('YOUR_STRIPE') !== -1) {
     alert('Payment links coming soon. Please use the contact form to place your order.');
     return;
   }
 
-  // First orders: validate then submit branding to Formspree before Stripe redirect
-  if (typeEl.value === 'first') {
-    var desc    = document.getElementById('brand-description');
-    var colours = document.getElementById('brand-colours');
-    var notes   = document.getElementById('brand-notes');
-    var file    = document.getElementById('logo-file');
+  // Repeat order goes straight to Stripe
+  if (typeEl.value === 'repeat') { window.location.href = link; return; }
 
-    // Validate required fields
-    if (!desc || !desc.value.trim()) {
-      desc.style.borderColor = 'var(--salmon)';
-      desc.focus();
-      desc.placeholder = 'Please describe your business and brand before continuing...';
-      return;
-    }
-    if (!file || !file.files.length) {
-      document.querySelector('.branding-upload-box').style.borderColor = 'var(--salmon)';
-      document.querySelector('.branding-upload-box').scrollIntoView({behavior:'smooth',block:'center'});
-      document.getElementById('upload-text').textContent = 'Please upload your logo to continue';
-      return;
-    }
+  // Validate first order fields
+  var desc    = document.getElementById('brand-description');
+  var colours = document.getElementById('brand-colours');
+  var notes   = document.getElementById('brand-notes');
+  var fileEl  = document.getElementById('logo-file');
 
-    // Lock button while submitting
-    var btn = document.getElementById('checkout-stripe-btn');
-    var originalHTML = btn.innerHTML;
-    btn.disabled = true;
-    btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="animation:spin 1s linear infinite"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg> Sending your branding...';
+  if (!desc || !desc.value.trim()) {
+    desc.style.borderColor = 'var(--salmon)';
+    desc.focus();
+    desc.placeholder = 'Please describe your business and brand before continuing...';
+    return;
+  }
+  if (!fileEl || !fileEl.files.length) {
+    document.getElementById('upload-box').style.borderColor = 'var(--salmon)';
+    document.getElementById('upload-box').scrollIntoView({behavior:'smooth',block:'center'});
+    document.getElementById('upload-text').textContent = 'Please upload your logo to continue';
+    return;
+  }
+  if (fileEl.files[0].size > 5 * 1024 * 1024) {
+    document.getElementById('upload-text').textContent = 'File too large — please upload under 5MB';
+    document.getElementById('upload-box').style.borderColor = 'var(--salmon)';
+    return;
+  }
 
-    // Build FormData for Formspree (supports file upload)
+  var refCode = generateCode();
+  var btn = document.getElementById('checkout-stripe-btn');
+  var origHTML = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="animation:spin 1s linear infinite"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg> Sending your branding...';
+
+  toBase64(fileEl.files[0]).then(function(base64data) {
+    var sizeLabel  = sizeEl.value;
+    var lidsLabel  = lidsEl.checked ? 'Yes' : 'No';
+    var totalVal   = document.getElementById('summary-total').textContent;
+    var descVal    = desc.value.trim();
+    var coloursVal = colours ? colours.value.trim() : 'Not provided';
+    var notesVal   = notes   ? notes.value.trim()   : 'None';
+
+    // EmailJS — sends logo as embedded image + all details
+    var emailParams = {
+      order_ref:     refCode,
+      cup_size:      sizeLabel,
+      lids_added:    lidsLabel,
+      order_total:   totalVal,
+      brand_desc:    descVal,
+      brand_colours: coloursVal,
+      extra_notes:   notesVal,
+      logo_name:     fileEl.files[0].name,
+      logo_data:     base64data
+    };
+    var p1 = emailjs.send('service_cxgz5wu', 'template_l0044h2', emailParams);
+
+    // Formspree backup — text fields only, no file
     var fd = new FormData();
-    fd.append('_subject', 'Brewcraft — New First Order Branding Submission');
-    fd.append('Cup Size', sizeEl.value);
-    fd.append('Lids Added', lidsEl.checked ? 'Yes' : 'No');
-    fd.append('Order Total', document.getElementById('summary-total').textContent);
-    fd.append('Brand Description', desc.value.trim());
-    fd.append('Brand Colours', colours ? colours.value.trim() : '');
-    fd.append('Additional Notes', notes ? notes.value.trim() : '');
-    fd.append('Logo File', file.files[0]);
-
-    fetch('https://formspree.io/f/xojynaoj', {
-      method: 'POST',
-      body: fd,
-      headers: { 'Accept': 'application/json' }
-    })
-    .then(function(res) {
-      if (res.ok) {
-        // Branding received — now send to Stripe
-        window.location.href = link;
-      } else {
-        // Formspree failed — still send to Stripe but warn
-        btn.disabled = false;
-        btn.innerHTML = originalHTML;
-        if (confirm('We had trouble saving your branding details. You can still pay now and email your logo to hello@brewcraft.uk after. Continue to payment?')) {
-          window.location.href = link;
-        }
-      }
-    })
-    .catch(function() {
-      btn.disabled = false;
-      btn.innerHTML = originalHTML;
-      if (confirm('We had trouble saving your branding details. You can still pay now and email your logo to hello@brewcraft.uk after. Continue to payment?')) {
-        window.location.href = link;
-      }
+    fd.append('_subject', 'Brewcraft ' + refCode + ' — Branding Details');
+    fd.append('Order Reference', refCode);
+    fd.append('Cup Size', sizeLabel);
+    fd.append('Lids Added', lidsLabel);
+    fd.append('Order Total', totalVal);
+    fd.append('Brand Description', descVal);
+    fd.append('Brand Colours', coloursVal);
+    fd.append('Additional Notes', notesVal);
+    fd.append('Logo Filename', fileEl.files[0].name);
+    var p2 = fetch('https://formspree.io/f/xojynaoj', {
+      method: 'POST', body: fd, headers: {'Accept': 'application/json'}
     });
 
-  } else {
-    // Repeat order — go straight to Stripe
-    window.location.href = link;
-  }
+    Promise.all([p1, p2])
+      .then(function() { window.location.href = link; })
+      .catch(function(err) {
+        console.warn('Submission issue:', err);
+        window.location.href = link;
+      });
+
+  }).catch(function() {
+    btn.disabled = false;
+    btn.innerHTML = origHTML;
+    alert('Could not read your logo file. Please try PNG or JPG format.');
+  });
 }
+
 </script>
 </body>
 </html>
