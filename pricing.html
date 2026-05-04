@@ -178,6 +178,8 @@ footer{background:var(--green-dark);border-top:1px solid rgba(255,255,255,0.08);
 .branding-upload-sub{font-size:12px;color:var(--muted);}
 .branding-upload-name{font-size:13px;color:var(--green);font-weight:600;margin-top:4px;display:none;}
 .branding-note{font-size:12px;color:var(--muted);line-height:1.6;background:var(--white);border-radius:10px;padding:12px 16px;border:1px solid rgba(59,109,17,0.12);}
+
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 </style>
 </head>
 <body>
@@ -334,6 +336,8 @@ footer{background:var(--green-dark);border-top:1px solid rgba(255,255,255,0.08);
 .branding-upload-sub{font-size:12px;color:var(--muted);}
 .branding-upload-name{font-size:13px;color:var(--green);font-weight:600;margin-top:4px;display:none;}
 .branding-note{font-size:12px;color:var(--muted);line-height:1.6;background:var(--white);border-radius:10px;padding:12px 16px;border:1px solid rgba(59,109,17,0.12);}
+
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 </style>
 
 <section class="green-pale">
@@ -766,14 +770,25 @@ function handleFileSelect(input) {
 }
 
 function handleCheckout() {
-  var typeEl = document.getElementById('order-type');
-  var stripeLink = document.getElementById('checkout-stripe-btn').dataset.href ||
-    STRIPE_LINKS[document.getElementById('cup-size').value + '-' + typeEl.value + (document.getElementById('lids-addon').checked ? '-lids' : '')];
+  var sizeEl  = document.getElementById('cup-size');
+  var typeEl  = document.getElementById('order-type');
+  var lidsEl  = document.getElementById('lids-addon');
+  var key     = sizeEl.value + '-' + typeEl.value + (lidsEl.checked ? '-lids' : '');
+  var link    = STRIPE_LINKS[key];
 
-  // For first orders, validate branding fields before proceeding
-  if (typeEl && typeEl.value === 'first') {
-    var desc = document.getElementById('brand-description');
-    var file = document.getElementById('logo-file');
+  if (!link || link.indexOf('YOUR_STRIPE') !== -1) {
+    alert('Payment links coming soon. Please use the contact form to place your order.');
+    return;
+  }
+
+  // First orders: validate then submit branding to Formspree before Stripe redirect
+  if (typeEl.value === 'first') {
+    var desc    = document.getElementById('brand-description');
+    var colours = document.getElementById('brand-colours');
+    var notes   = document.getElementById('brand-notes');
+    var file    = document.getElementById('logo-file');
+
+    // Validate required fields
     if (!desc || !desc.value.trim()) {
       desc.style.borderColor = 'var(--salmon)';
       desc.focus();
@@ -786,17 +801,54 @@ function handleCheckout() {
       document.getElementById('upload-text').textContent = 'Please upload your logo to continue';
       return;
     }
-    // Branding collected — proceed to payment
-  }
 
-  // Navigate to Stripe
-  var key = document.getElementById('cup-size').value + '-' + typeEl.value + (document.getElementById('lids-addon').checked ? '-lids' : '');
-  var link = STRIPE_LINKS[key];
-  if (!link || link.indexOf('YOUR_STRIPE') !== -1) {
-    alert('Payment links coming soon. Please use the contact form to place your order.');
-    return;
+    // Lock button while submitting
+    var btn = document.getElementById('checkout-stripe-btn');
+    var originalHTML = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="animation:spin 1s linear infinite"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg> Sending your branding...';
+
+    // Build FormData for Formspree (supports file upload)
+    var fd = new FormData();
+    fd.append('_subject', 'Brewcraft — New First Order Branding Submission');
+    fd.append('Cup Size', sizeEl.value);
+    fd.append('Lids Added', lidsEl.checked ? 'Yes' : 'No');
+    fd.append('Order Total', document.getElementById('summary-total').textContent);
+    fd.append('Brand Description', desc.value.trim());
+    fd.append('Brand Colours', colours ? colours.value.trim() : '');
+    fd.append('Additional Notes', notes ? notes.value.trim() : '');
+    fd.append('Logo File', file.files[0]);
+
+    fetch('https://formspree.io/f/xojynaoj', {
+      method: 'POST',
+      body: fd,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(res) {
+      if (res.ok) {
+        // Branding received — now send to Stripe
+        window.location.href = link;
+      } else {
+        // Formspree failed — still send to Stripe but warn
+        btn.disabled = false;
+        btn.innerHTML = originalHTML;
+        if (confirm('We had trouble saving your branding details. You can still pay now and email your logo to hello@brewcraft.uk after. Continue to payment?')) {
+          window.location.href = link;
+        }
+      }
+    })
+    .catch(function() {
+      btn.disabled = false;
+      btn.innerHTML = originalHTML;
+      if (confirm('We had trouble saving your branding details. You can still pay now and email your logo to hello@brewcraft.uk after. Continue to payment?')) {
+        window.location.href = link;
+      }
+    });
+
+  } else {
+    // Repeat order — go straight to Stripe
+    window.location.href = link;
   }
-  window.open(link, '_blank');
 }
 </script>
 </body>
