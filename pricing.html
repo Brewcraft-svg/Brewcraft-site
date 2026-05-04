@@ -518,7 +518,7 @@ footer{background:var(--green-dark);border-top:1px solid rgba(255,255,255,0.08);
       </div>
     </div>
 
-    <p class="qty-note" style="margin-top:16px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>After payment you'll receive a confirmation email. For first orders, your branding details are saved and we'll send your digital proof within 2–4 days.</p>
+    <p class="qty-note" style="margin-top:16px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>After payment you'll receive an order confirmation email. For first orders, we'll contact you within 24 hours to confirm your branding and begin your proof.</p>
   </div>
 
   <!-- 3,000 cups -->
@@ -688,14 +688,14 @@ var LIDS_PRICES = { '8oz': 35, '12oz': 38 };
 
 // Stripe Payment Links — replace these with your actual Stripe Payment Link URLs
 var STRIPE_LINKS = {
-  '8oz-first':      'YOUR_STRIPE_LINK_8OZ_FIRST',
-  '8oz-first-lids': 'YOUR_STRIPE_LINK_8OZ_FIRST_LIDS',
-  '8oz-repeat':      'YOUR_STRIPE_LINK_8OZ_REPEAT',
-  '8oz-repeat-lids': 'YOUR_STRIPE_LINK_8OZ_REPEAT_LIDS',
-  '12oz-first':      'YOUR_STRIPE_LINK_12OZ_FIRST',
-  '12oz-first-lids': 'YOUR_STRIPE_LINK_12OZ_FIRST_LIDS',
-  '12oz-repeat':      'YOUR_STRIPE_LINK_12OZ_REPEAT',
-  '12oz-repeat-lids': 'YOUR_STRIPE_LINK_12OZ_REPEAT_LIDS'
+  '8oz-first':       'https://buy.stripe.com/9B6cN49jBgox7rieD12B200',
+  '8oz-first-lids':  'https://buy.stripe.com/9B67sKcvNb4dh1ScuT2B201',
+  '8oz-repeat':      'https://buy.stripe.com/4gM14m2Vd4FPcLCamL2B202',
+  '8oz-repeat-lids': 'https://buy.stripe.com/9B63cudzRfkt4f62Uj2B203',
+  '12oz-first':      'https://buy.stripe.com/14AfZganFa09fXO1Qf2B204',
+  '12oz-first-lids': 'https://buy.stripe.com/14AcN4brJb4dh1SgL92B205',
+  '12oz-repeat':      'https://buy.stripe.com/cNi3cu1R97S13b2amL2B206',
+  '12oz-repeat-lids': 'https://buy.stripe.com/5kQeVcanF5JTeTKbqP2B207'
 };
 
 function updateTotal() {
@@ -786,12 +786,7 @@ function handleCheckout() {
       document.getElementById('upload-text').textContent = 'Please upload your logo to continue';
       return;
     }
-    // Store branding in sessionStorage so artwork.html can access it
-    sessionStorage.setItem('bc_brand_desc', desc.value);
-    sessionStorage.setItem('bc_brand_colours', document.getElementById('brand-colours').value || '');
-    sessionStorage.setItem('bc_brand_notes', document.getElementById('brand-notes').value || '');
-    sessionStorage.setItem('bc_logo_name', file.files[0].name);
-    sessionStorage.setItem('bc_cup_size', document.getElementById('cup-size').value);
+    // Branding collected — proceed to payment
   }
 
   // Navigate to Stripe
