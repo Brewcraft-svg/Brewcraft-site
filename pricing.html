@@ -179,6 +179,18 @@ footer{background:var(--green-dark);border-top:1px solid rgba(255,255,255,0.08);
 .branding-note{font-size:12px;color:var(--muted);line-height:1.6;background:var(--white);border-radius:10px;padding:12px 16px;border:1px solid rgba(59,109,17,0.12);}
 
 @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* ── COOKIE NOTICE ──────────────────────────────────── */
+.cookie-bar{position:fixed;bottom:0;left:0;right:0;background:var(--black);color:rgba(255,255,255,0.75);font-family:"DM Sans",sans-serif;font-size:13px;font-weight:300;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;z-index:9999;transform:translateY(0);transition:transform 0.3s ease;box-shadow:0 -4px 24px rgba(0,0,0,0.2);}
+.cookie-bar.hidden{transform:translateY(100%);}
+.cookie-bar a{color:var(--salmon);text-decoration:none;font-weight:400;}
+.cookie-bar a:hover{text-decoration:underline;}
+.cookie-bar-actions{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.cookie-accept{background:var(--green);color:var(--white);font-family:"Outfit",sans-serif;font-size:12px;font-weight:700;border:none;border-radius:100px;padding:8px 20px;cursor:pointer;transition:background 0.2s;white-space:nowrap;}
+.cookie-accept:hover{background:var(--green-dark);}
+.cookie-decline{background:none;color:rgba(255,255,255,0.45);font-family:"Outfit",sans-serif;font-size:12px;font-weight:600;border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:8px 16px;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+.cookie-decline:hover{color:rgba(255,255,255,0.75);border-color:rgba(255,255,255,0.3);}
+@media(max-width:700px){.cookie-bar{flex-direction:column;align-items:flex-start;padding:16px 20px;}.cookie-bar-actions{width:100%;}}
 </style>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>emailjs.init("IT9NqlzWwBiyhCFL7");</script>
@@ -339,6 +351,18 @@ footer{background:var(--green-dark);border-top:1px solid rgba(255,255,255,0.08);
 .branding-note{font-size:12px;color:var(--muted);line-height:1.6;background:var(--white);border-radius:10px;padding:12px 16px;border:1px solid rgba(59,109,17,0.12);}
 
 @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* ── COOKIE NOTICE ──────────────────────────────────── */
+.cookie-bar{position:fixed;bottom:0;left:0;right:0;background:var(--black);color:rgba(255,255,255,0.75);font-family:"DM Sans",sans-serif;font-size:13px;font-weight:300;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;gap:24px;z-index:9999;transform:translateY(0);transition:transform 0.3s ease;box-shadow:0 -4px 24px rgba(0,0,0,0.2);}
+.cookie-bar.hidden{transform:translateY(100%);}
+.cookie-bar a{color:var(--salmon);text-decoration:none;font-weight:400;}
+.cookie-bar a:hover{text-decoration:underline;}
+.cookie-bar-actions{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+.cookie-accept{background:var(--green);color:var(--white);font-family:"Outfit",sans-serif;font-size:12px;font-weight:700;border:none;border-radius:100px;padding:8px 20px;cursor:pointer;transition:background 0.2s;white-space:nowrap;}
+.cookie-accept:hover{background:var(--green-dark);}
+.cookie-decline{background:none;color:rgba(255,255,255,0.45);font-family:"Outfit",sans-serif;font-size:12px;font-weight:600;border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:8px 16px;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+.cookie-decline:hover{color:rgba(255,255,255,0.75);border-color:rgba(255,255,255,0.3);}
+@media(max-width:700px){.cookie-bar{flex-direction:column;align-items:flex-start;padding:16px 20px;}.cookie-bar-actions{width:100%;}}
 </style>
 
 <section class="green-pale">
@@ -546,7 +570,7 @@ footer{background:var(--green-dark);border-top:1px solid rgba(255,255,255,0.08);
           <div>
             <div class="quote-row">
               <span class="quote-row-label">Repeat order</span>
-              <span class="quote-row-val">£495</span>
+              <span class="quote-row-val">£505</span>
             </div>
             <div class="quote-row-repeat">No setup fee on reorders</div>
           </div>
@@ -569,7 +593,7 @@ footer{background:var(--green-dark);border-top:1px solid rgba(255,255,255,0.08);
           <div>
             <div class="quote-row">
               <span class="quote-row-label">Repeat order</span>
-              <span class="quote-row-val">£555</span>
+              <span class="quote-row-val">£565</span>
             </div>
             <div class="quote-row-repeat">No setup fee on reorders</div>
           </div>
@@ -635,7 +659,7 @@ footer{background:var(--green-dark);border-top:1px solid rgba(255,255,255,0.08);
     <thead><tr><th>Quantity</th><th>8oz first order</th><th>8oz repeat</th><th>12oz first order</th><th>12oz repeat</th></tr></thead>
     <tbody>
       <tr><td>1,000</td><td><span class="price-strong">£210</span></td><td><span class="price-strong">£175</span></td><td><span class="price-strong">£230</span></td><td><span class="price-strong">£195</span></td></tr>
-      <tr><td>3,000</td><td><span class="price-strong">£585</span></td><td><span class="price-strong">£495</span></td><td><span class="price-strong">£645</span></td><td><span class="price-strong">£555</span></td></tr>
+      <tr><td>3,000</td><td><span class="price-strong">£585</span></td><td><span class="price-strong">£505</span></td><td><span class="price-strong">£645</span></td><td><span class="price-strong">£565</span></td></tr>
       <tr><td>5,000</td><td><a href="contact.html" style="color:var(--green);font-weight:600;text-decoration:none;">Get a quote</a></td><td><a href="contact.html" style="color:var(--green);font-weight:600;text-decoration:none;">Get a quote</a></td><td><a href="contact.html" style="color:var(--green);font-weight:600;text-decoration:none;">Get a quote</a></td><td><a href="contact.html" style="color:var(--green);font-weight:600;text-decoration:none;">Get a quote</a></td></tr>
       <tr><td>10,000</td><td><a href="contact.html" style="color:var(--green);font-weight:600;text-decoration:none;">Get a quote</a></td><td><a href="contact.html" style="color:var(--green);font-weight:600;text-decoration:none;">Get a quote</a></td><td><a href="contact.html" style="color:var(--green);font-weight:600;text-decoration:none;">Get a quote</a></td><td><a href="contact.html" style="color:var(--green);font-weight:600;text-decoration:none;">Get a quote</a></td></tr>
     </tbody>
@@ -882,6 +906,31 @@ function handleCheckout() {
   });
 }
 
+</script>
+
+<!-- COOKIE NOTICE -->
+<div class="cookie-bar" id="cookie-bar">
+  <p style="margin:0;line-height:1.6;">
+    This site uses essential cookies only — for secure payments via Stripe and form processing via Formspree. No tracking or advertising cookies are used.
+    <a href="privacy.html#cookies">Learn more</a>
+  </p>
+  <div class="cookie-bar-actions">
+    <button class="cookie-accept" onclick="dismissCookie()">Got it</button>
+    <button class="cookie-decline" onclick="dismissCookie()">Dismiss</button>
+  </div>
+</div>
+<script>
+(function(){
+  if(localStorage.getItem('bc_cookie_ok')){
+    var bar = document.getElementById('cookie-bar');
+    if(bar) bar.classList.add('hidden');
+  }
+})();
+function dismissCookie(){
+  localStorage.setItem('bc_cookie_ok','1');
+  var bar = document.getElementById('cookie-bar');
+  if(bar) bar.classList.add('hidden');
+}
 </script>
 </body>
 </html>
